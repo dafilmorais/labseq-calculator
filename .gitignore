@@ -20,11 +20,6 @@
 # Ignore Quarkus dev mode state
 /backend/.quarkus/
 
-# Ignore build-related files for backend
-/backend/mvnw
-/backend/mvnw.cmd
-
-
 # Angular
 
 # Dependency directories
