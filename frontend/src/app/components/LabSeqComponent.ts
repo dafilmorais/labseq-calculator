@@ -12,7 +12,9 @@ export class LabSeqComponent {
   labSeqValue: string = '-';
   loading: boolean = false;
   error: string | null = null;
-  historyResults: { input: string; output: string }[] = [];
+  fetchCounter: number = 0;
+  private counterInterval: any;
+  historyResults: { input: string; output: string; elapsedTime: string }[] = [];
   
   private labSeqSubscription: Subscription | null = null;
 
@@ -27,36 +29,56 @@ export class LabSeqComponent {
   getLabSeqValue(): void {
     this.loading = true;
     this.error = null;
-  
+    this.fetchCounter = 0;
+
     if (!this.isValidInput()) {
       return;
     }
-  
+
     if (this.labSeqSubscription) {
       this.labSeqSubscription.unsubscribe();
     }
-  
+
+    this.counterInterval = setInterval(() => {
+      this.fetchCounter++;
+    }, 1000);
+
     const inputNumber = this.sequenceNumber !== '' ? +this.sequenceNumber : 0;
-  
+
     this.labSeqSubscription = this.labSeqService
-      .getLabSeqValue(inputNumber)
-      .subscribe({
-        next: (value) => {
-          this.labSeqValue = value.toString();
+    .getLabSeqValue(inputNumber.toString())
+    .subscribe({
+      next: (value) => {
+        clearInterval(this.counterInterval); // Stop the counter when fetching is complete
+        this.labSeqValue = value.toString();
+
+        this.historyResults.push({
+          input: this.sequenceNumber?.toString() ?? 'N/A',
+          output: this.labSeqValue.toString(),
+          elapsedTime: this.formatTime(this.fetchCounter),
+        });
+        this.sequenceNumber = '';
+        this.loading = false;
+      },
+      error: (error) => {
+        clearInterval(this.counterInterval); // Stop the counter on error
+        console.error('Error fetching LabSeq value:', error);
+        this.error = 'Error fetching LabSeq value. <br>Please try again.';
+        this.loading = false;
+      },
+    });
+  }
+
+  formatTime(seconds: number): string {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
   
-          this.historyResults.push({
-            input: this.sequenceNumber?.toString() ?? 'N/A',
-            output: this.labSeqValue.toString(),
-          });
-          this.sequenceNumber = '';
-          this.loading = false;
-        },
-        error: (error) => {
-          console.error('Error fetching LabSeq value:', error);
-          this.error = 'Error fetching LabSeq value. <br>Please try again.';
-          this.loading = false;
-        },
-      });
+    return `${hours > 0 ? hours + 'h ' : ''}${minutes > 0 ? minutes + 'm ' : ''}${remainingSeconds}s`;
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.counterInterval); // Clear the interval when the component is destroyed
   }
   
   openSwaggerUI(): void {

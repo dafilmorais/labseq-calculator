@@ -10,7 +10,7 @@ export class LabSeqService {
 
   constructor(private http: HttpClient) {}
 
-  getLabSeqValue(n: number): Observable<number> {
-    return this.http.get<number>(`${this.baseUrl}/${n}`);
+  getLabSeqValue(n: string): Observable<string> {
+    return this.http.get(`${this.baseUrl}/${n}`, { responseType: 'text' });
   }
 }
