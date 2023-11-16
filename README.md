@@ -61,8 +61,11 @@ Verify the addresses in your Docker.
 
 # Calculator in action!
 
-![Alt Text](./docs/frontend.png)
+![LabSeq Calculator](./docs/frontend.png)
 
+# Validating results (by hand :downcast_face_with_sweat: )
+
+![N25 by hand](./docs/n25.png)
 
 # Conclusion :rocket:
 
