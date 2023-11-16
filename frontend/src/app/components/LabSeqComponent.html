@@ -1,0 +1,74 @@
+<div class="intro-section">
+  <h1 class="title">LabSeq Calculator!</h1>
+  <p>
+    This page allows you to explore the LabSeq sequence, a mathematical sequence
+    defined by specific rules.
+  </p>
+  <div>
+    <p>The LabSeq sequence is defined as follows:</p>
+    <ul>
+      <li>n=0 => l(0) = 0</li>
+      <li>n=1 => l(1) = 1</li>
+      <li>n=2 => l(2) = 0</li>
+      <li>n=3 => l(3) = 1</li>
+      <li>n>3 => l(n) = l(n-4) + l(n-3)</li>
+    </ul>
+  </div>
+</div>
+<div class="form-container" style="margin-top: 2rem">
+  <label for="sequenceNumber">Enter value for {{'{n}'}}:</label>
+  <div class="input-button-container">
+    <input
+      type="number"
+      id="sequenceNumber"
+      [(ngModel)]="sequenceNumber"
+      placeholder="{n}"
+    />
+    <button (click)="getLabSeqValue()" [disabled]="!isValidInput()">GET</button>
+  </div>
+
+  <div *ngIf="loading" class="loading-spinner">Fetching...</div>
+
+  <div class="result-section" *ngIf="!loading && error === null">
+    <p class="result-label">LabSeq Value:</p>
+    <p class="result-text">{{ labSeqValue }}</p>
+  </div>
+
+  <div *ngIf="error !== null" class="error-section">
+    <p class="error-text" [innerHTML]="error"></p>
+  </div>
+
+  <div class="swagger-section">
+    <button (click)="openSwaggerUI()" class="swagger-button">
+      Go to Swagger UI
+    </button>
+  </div>
+</div>
+
+<div class="history-card" style="margin-top: 2rem">
+  <p class="history-label">History Results:</p>
+  <table class="history-table">
+    <thead>
+      <tr>
+        <th>Input</th>
+        <th>Output LabSeq Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let result of historyResults" class="history-item">
+        <td>{{ result.input }}</td>
+        <td>{{ result.output }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="github-link">
+  <a
+    href="https://github.com/dafilmorais"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Check out more of my projects {{'@'}}dafilmorais (GitHub)
+  </a>
+</div>
