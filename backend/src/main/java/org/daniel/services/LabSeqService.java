@@ -37,27 +37,29 @@ public class LabSeqService {
             return value.toString();
         }
     }
-
-
-
+    
     private BigInteger calculateLabSeq(int n) {
         if (n == 0) return BigInteger.ZERO;
         if (n == 1) return BigInteger.ONE;
         if (n == 2) return BigInteger.ZERO;
         if (n == 3) return BigInteger.ONE;
 
-        BigInteger[] cache = new BigInteger[n + 1];
-        cache[0] = BigInteger.ZERO;
-        cache[1] = BigInteger.ONE;
-        cache[2] = BigInteger.ZERO;
-        cache[3] = BigInteger.ONE;
+        BigInteger[] values = new BigInteger[4];
+        values[0] = BigInteger.ZERO;
+        values[1] = BigInteger.ONE;
+        values[2] = BigInteger.ZERO;
+        values[3] = BigInteger.ONE;
 
         for (int i = 4; i <= n; i++) {
-            cache[i] = cache[i - 4].add(cache[i - 3]);
+            values[i % 4] = values[(i - 4) % 4].add(values[(i - 3) % 4]);
         }
 
-        return cache[n];
+        return values[n % 4];
     }
+
+
+
+
 
 }
  /*In order to prevent running out of memory heap, we actually only store the last two values
