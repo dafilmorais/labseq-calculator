@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  quarkus-backend:
+    image: quarkus/backend:latest
+    ports:
+      - "8080:8080"
+
+  angular-frontend:
+    image: angular/app:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - quarkus-backend

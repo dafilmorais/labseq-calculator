@@ -57,8 +57,8 @@ button.swagger-button:hover {
 }
 .result-text {
   font-size: 3em;
-  overflow: visible; /* Remove overflow: hidden */
-  word-wrap: break-word; /* Add this line to allow word wrapping */
+  overflow: visible;
+  word-wrap: break-word; 
 }
 
 .swagger-section {
@@ -71,7 +71,7 @@ button.swagger-button:hover {
   padding: 10px;
   font-weight: bold;
   display: flex;
-  flex-direction: column; /* Add this line to make it a column layout */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 50px;
