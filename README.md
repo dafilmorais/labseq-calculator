@@ -59,6 +59,11 @@ Make sure you have <b><u>Docker installed and running</u></b>:
 
 Verify the addresses in your Docker.
 
+# Calculator in action!
+
+![Alt Text](./docs/frontend.png)
+
+
 # Conclusion :rocket:
 
 I hope you can use this project to learn more about implementing Quarkus + Angular + Docker. Happy coding! :coffee:
