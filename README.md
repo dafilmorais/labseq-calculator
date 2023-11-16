@@ -63,7 +63,7 @@ Verify the addresses in your Docker.
 
 ![LabSeq Calculator](./docs/frontend.png)
 
-# Validating results (by hand :downcast_face_with_sweat: )
+# Validating results (by hand)
 
 ![N25 by hand](./docs/n25.png)
 
