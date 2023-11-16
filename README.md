@@ -54,7 +54,7 @@ Make sure you have <b><u>Docker installed and running</u></b>:
 
  This script builds the two docker images from the source code and initializes them in containers. After the containers are up and running, access the frontend URL:
  
-- [Angular Frontend (Labseq Calculator)](http:\\localhost)
+- [Angular Frontend (Labseq Calculator)](http://localhost)
 - [SwaggerUI Backend](http://localhost/q/swagger-ui/)
 
 Verify the addresses in your Docker.
