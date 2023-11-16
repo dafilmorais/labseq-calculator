@@ -1,0 +1,137 @@
+.intro-section {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: auto;
+  width: 70%;
+}
+.title {
+  text-align: center;
+}
+
+.form-container,
+.history-card {
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+button.swagger-button {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+button.swagger-button:hover {
+  background-color: #45a049;
+}
+
+.result-section {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.result-label {
+  font-weight: bold;
+}
+.result-text {
+  font-size: 3em;
+  overflow: visible; /* Remove overflow: hidden */
+  word-wrap: break-word; /* Add this line to allow word wrapping */
+}
+
+.swagger-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.input-button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.input-button-container input,
+.input-button-container button {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 10px;
+  height: 40px;
+}
+
+.error-section {
+  margin-top: 15px;
+  text-align: center;
+  color: red;
+}
+
+.error-text {
+  font-weight: bold;
+}
+
+.history-label {
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.history-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.history-item {
+  margin-bottom: 5px;
+}
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.history-table th,
+.history-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.history-table th {
+  background-color: #f2f2f2;
+}
+
+.github-link {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
