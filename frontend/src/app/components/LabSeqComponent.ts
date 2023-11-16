@@ -82,7 +82,7 @@ export class LabSeqComponent {
   }
   
   openSwaggerUI(): void {
-    const swaggerUrl = 'http://localhost/q/swagger-ui';
+    const swaggerUrl = 'http://localhost:8080/q/swagger-ui';
     window.open(swaggerUrl, '_blank');
   }
 }
