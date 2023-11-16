@@ -49,7 +49,7 @@ export class LabSeqComponent {
     .getLabSeqValue(inputNumber.toString())
     .subscribe({
       next: (value) => {
-        clearInterval(this.counterInterval); // Stop the counter when fetching is complete
+        clearInterval(this.counterInterval);
         this.labSeqValue = value.toString();
 
         this.historyResults.push({
@@ -61,7 +61,7 @@ export class LabSeqComponent {
         this.loading = false;
       },
       error: (error) => {
-        clearInterval(this.counterInterval); // Stop the counter on error
+        clearInterval(this.counterInterval);
         console.error('Error fetching LabSeq value:', error);
         this.error = 'Error fetching LabSeq value. <br>Please try again.';
         this.loading = false;
@@ -78,7 +78,7 @@ export class LabSeqComponent {
   }
 
   ngOnDestroy(): void {
-    clearInterval(this.counterInterval); // Clear the interval when the component is destroyed
+    clearInterval(this.counterInterval);
   }
   
   openSwaggerUI(): void {

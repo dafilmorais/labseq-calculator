@@ -13,8 +13,7 @@ public class CorsFilter implements ContainerResponseFilter {
         MultivaluedMap<String, Object> headers = responseContext.getHeaders();
 
         // Allow requests from this origin
-        headers.add("Access-Control-Allow-Origin", "http://localhost:4200"); //angular dev usual local address
-
+        headers.add("Access-Control-Allow-Origin", "http://localhost");
         // Allow HTTP methods
         headers.add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
         headers.add("Access-Control-Allow-Headers", "Content-Type");
