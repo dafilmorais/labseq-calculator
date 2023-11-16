@@ -71,10 +71,12 @@ button.swagger-button:hover {
   padding: 10px;
   font-weight: bold;
   display: flex;
+  flex-direction: column; /* Add this line to make it a column layout */
   justify-content: center;
   align-items: center;
   height: 50px;
 }
+
 
 .input-button-container {
   display: flex;

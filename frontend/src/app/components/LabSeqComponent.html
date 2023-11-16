@@ -27,11 +27,16 @@
     <button (click)="getLabSeqValue()" [disabled]="!isValidInput()">GET</button>
   </div>
 
-  <div *ngIf="loading" class="loading-spinner">Fetching...</div>
+  <div *ngIf="loading" class="loading-spinner">
+    Fetching...
+    <span>
+      {{ formatTime(fetchCounter) }}
+    </span>
+  </div>
 
   <div class="result-section" *ngIf="!loading && error === null">
     <p class="result-label">LabSeq Value:</p>
-    <p class="result-text">{{ labSeqValue }}</p>
+    <p class="result-text">{{ labSeqValue !== '-' ? labSeqValue : '-' }}</p>
   </div>
 
   <div *ngIf="error !== null" class="error-section">
@@ -52,12 +57,14 @@
       <tr>
         <th>Input</th>
         <th>Output LabSeq Value</th>
+        <th>Elapsed Time</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let result of historyResults" class="history-item">
         <td>{{ result.input }}</td>
         <td>{{ result.output }}</td>
+        <td>{{ result.elapsedTime }}</td>
       </tr>
     </tbody>
   </table>
