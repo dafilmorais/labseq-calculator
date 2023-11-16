@@ -65,7 +65,7 @@ Verify the addresses in your Docker.
 
 # Validating results (by hand :downcast_face_with_sweat: )
 
-![N25 by hand](./docs/n25.png)
+![N25 by hand](./docs/n25.jpg)
 
 # Conclusion :rocket:
 
