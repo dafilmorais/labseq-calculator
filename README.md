@@ -61,5 +61,5 @@ Verify the addresses in your Docker.
 
 # Conclusion :rocket:
 
-I hope you can use this project to learn more about implementing Quafka + Angular + Docker. Happy coding! :coffee:
+I hope you can use this project to learn more about implementing Quarkus + Angular + Docker. Happy coding! :coffee:
 
