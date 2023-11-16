@@ -14,9 +14,6 @@
 /frontend/*.iws
 /frontend/*.ipr
 
-# Ignore Quarkus application properties
-/backend/src/main/resources/application.properties
-
 # Ignore Quarkus dev mode state
 /backend/.quarkus/
 
